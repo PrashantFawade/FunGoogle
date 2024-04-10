@@ -39,7 +39,7 @@ const textArray = [ "Welcome to FunGoogle !!", "Don't ask.me, Use @FunGoogle !!"
 let currentText = 0;
 let charIndex = 0;
 
-function typeWriter() {
+function typeWriter() {  
     const currentString = textArray[currentText];
     if (charIndex < currentString.length) {
         typingText.textContent += currentString.charAt(charIndex);
