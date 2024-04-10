@@ -1,0 +1,251 @@
+
+/* Keyframes for animation */
+@keyframes move-background {
+    from {
+      transform: translate3d(0px, 0px, 0px);
+    }
+    to { 
+      transform: translate3d(1000px, 0px, 0px);
+    }
+  }
+  
+  /* Container for the background elements */
+  .background-container{
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Background with stars image */
+  .stars {
+   background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+   position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+      /* z-index: 0; */
+  }
+  
+  /* Twinkling background element with animation */
+  .twinkling{
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      
+      animation: move-background 10s linear infinite;
+  }
+  
+  /* Clouds background element with animation */
+  .clouds{
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+    background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+  
+      animation: move-background 10s linear infinite;
+  }
+  
+  
+  img{
+    height: 70vh;
+    width:70vh;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+  }
+
+  /* /////////////////////////////////////////////////////////// */
+
+
+  .menu {
+    display: flex;
+    align-items: center;
+    padding: 15px; 
+    z-index:5;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 7%;
+    left: 10%;
+  }
+
+  .menu button{
+    padding: 5px;
+    background-color: #046cdb;
+    /* background: linear-gradient(200deg, #ff46d7, #046cdb, #ff2d42, #2b86e8); */
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+  }
+
+  .menu button:hover{
+    cursor: pointer;
+    /* background-color: rgb(169, 89, 244); */
+    background-color: #141212;
+    border: 1px solid #f1f1f1;
+    color: #fff;
+    box-shadow: 2px 2px 5px #fff;
+    transition: all ease-in-out 0.2s;
+  }
+  
+/* /////////////////////////////////////////////////////////////// */
+
+.content-wrapper {
+    position: absolute;
+    /* top: 90%; */
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 50%; 
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .header {
+    /* border: 2px solid #fff; */
+  }
+
+  .header img{
+    top: 25%;
+    left: 17%;
+    width: 25%;
+    height: 50%;
+  }
+  
+
+  .chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+    z-index:5;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    width: 50%;
+  }
+  
+  .chat-input {
+    flex: 1; 
+    border: 1px solid #ccc; 
+    border-radius: 30px; 
+    padding: 10px; 
+    font-size: 16px; 
+    outline: none; 
+    background-color: #fff; 
+    left: 50px;
+    height: 30px;
+    box-shadow: 2px 2px 5px #f1f1f1;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+  
+
+  .chat-input:focus {
+    border-color: #333; 
+  }
+
+  .chat-input-container img{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .chat-input-container img:hover{
+    cursor: pointer;
+  }
+
+
+  .chat-input-containerOne {
+    padding: 10px; 
+    z-index:5;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 75%;
+    left: 38%;
+    width: 50%;
+    font-size: large;
+  }
+
+
+  .Notify {
+    padding: 10px; 
+    z-index:5;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    width: 100%;
+    font-size: large;
+    color: #fff;
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 1000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: linear-gradient(200deg, #ff46d7, #046cdb, #ff2d42, #2b86e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.Notify::after {
+    content: '';
+    display: inline-block;
+    width: 0.1em;
+    height: 0.9em;
+    vertical-align: middle;
+    background-color: #2b86e8;
+    animation: typing 10s steps(50, end), blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 0.1em;
+    }
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes textGradient {
+    from {
+        background-position: 0 100%;
+    }
+
+    to {
+        background-position: 200% 100%;
+    }
+}

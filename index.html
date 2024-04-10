@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="google.css">
+    <link rel="shortcut icon" href="./FunGoogle.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>FunGoogle</title>
+</head>
+
+<body>
+
+    <div class="background-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="img">
+        <div class="stars">
+        </div>
+        <div class="twinkling">
+        </div>
+        <div class="clouds" id="cloudsDiv" style="display: none;"></div>
+    </div>
+
+    <div class="menu" id="cloudyModeButton">
+        <button><i class="fas fa-moon"></i> Dark Mode</button>
+    </div>
+
+    <div class="header">
+        <img src="./social.png" alt="Google Logo">
+    </div>
+
+    <div class="chat-input-container">
+        <input type="text" class="chat-input" placeholder="Search Google or type a URL here" id="inputText">
+        <img src="./search.png" alt="Search" id="SearchIcon">
+    </div>
+    <div class="chat-input-containerOne">
+        <p style="color: aliceblue;"> © 2024 FunGoogle By Prashant Fawade. All rights reserved.</p>
+    </div>
+
+    <p class="Notify"></p>
+
+
+    <script src="./google.js">
+        const inputText = document.getElementById('inputText');
+        const searchIcon = document.getElementById('SearchIcon');
+
+        inputText.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                submitText();
+            }
+        });
+
+        searchIcon.addEventListener('click', submitText);
+
+        function submitText() {
+            const text = inputText.value.trim();
+
+            if (!text || text.length < 5) {
+                alert('Please enter at least 5 characters to submit.');
+                return;
+            }
+            window.location.href = `https://www.google.com/search?q=${inputText.value}`;
+            inputText.value = '';
+        }
+
+        document.getElementById('SearchIcon').addEventListener('click', () => {
+            if (!text || text.length < 5) {
+                alert('Please enter at least 5 characters to submit.');
+                return;
+            }
+            // window.location.href = `https://www.google.com/search?q=${document.getElementById('inputText').value}`
+            window.location.href = `https://www.google.com/search?q=${inputText}`;
+        })
+
+        const cloudyModeButton = document.getElementById('cloudyModeButton');
+        const cloudsDiv = document.getElementById('cloudsDiv');
+
+        cloudyModeButton.addEventListener('click', () => {
+            if (cloudyModeButton.textContent === 'Cloudy Mode On') {
+                cloudsDiv.style.display = 'block';
+                cloudyModeButton.textContent = 'Cloudy Mode Off';
+            } else {
+                cloudsDiv.style.display = 'none';
+                cloudyModeButton.textContent = 'Cloudy Mode On';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
